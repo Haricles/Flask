@@ -23,6 +23,14 @@ def meretek():
 def pizzak():
     return render_template("pizzak.html")
 
+@app.route("/elerhetoseg")
+def elerhetoseg():
+    return render_template("elerhetoseg.html")
+
+@app.route("/kepek")
+def kepek():
+    return render_template("kepek.html")
+
 
 if __name__=="__main__":
     app.run(debug=True)
