@@ -1,27 +1,13 @@
-from flask import Flask,render_template
+from flask import Flask,redirect,url_for,render_template,request
+from pizzak import pizzak
 
-app = Flask(__name__)
+app=Flask(__name__)
+
 
 @app.route("/")
-@app.route("/home")
-def home():
-    return render_template("index.html")
-
-@app.route("/rendeles")
-def etlap():
-    return render_template("rendeles.html")
-
-@app.route("/menu")
-def menu():
-    return render_template("menu.html")
-
-@app.route("/meretek")
-def meretek():
-    return render_template("meretek.html")
-
-@app.route("/pizzak")
-def pizzak():
-    return render_template("pizzak.html")
+@app.route("/kezdolap")
+def kezdolap():
+    return render_template("kezdolap.html")
 
 @app.route("/elerhetoseg")
 def elerhetoseg():
@@ -31,6 +17,15 @@ def elerhetoseg():
 def kepek():
     return render_template("kepek.html")
 
+@app.route("/rolunk")
+def rolunk():
+    return render_template("rolunk.html")
 
-if __name__=="__main__":
+@app.route("/rendeles")
+def rendeles():
+    return render_template("pizzak.html",pizzak=pizzak)
+
+
+
+if __name__== "__main__":
     app.run(debug=True)

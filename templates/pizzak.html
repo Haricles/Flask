@@ -1,177 +1,23 @@
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <link rel="stylesheet" href="static/style.css">
-  <title>Főoldal</title>
-</head>
-<body>
-  <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary"  data-bs-theme="dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/home">Cserhát Gyöngye Kisvendéglő és Étterem</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a href="/rendeles" class="nav-link active" aria-current="page">Rendelés</a>
-          <a class="nav-link" href="/elerhetoseg">Elérhetőség</a>
-          <a class="nav-link" href="/kepek">Képek</a>
-        </div>
+{% extends "kezdolap.html" %}
+{% block title %} Rendelés {% endblock title %}
+{% block udvozles %}{% endblock udvozles %}
+{% block elerhetoseg %}{% endblock elerhetoseg %}
+{% block rendeles_gomb %}
+
+<div class="container">
+  <div class="row">
+{% for key in pizzak %}
+    <div class="card bg-dark" style="width: 18rem;">
+      <img src="/static/pizza.jpg" class="card-img-top" alt="...">
+      <div class="card-body row">
+        <h5 class="card-title ">{{key['Name']}}</h5>
+        <p class="card-text">{{key['Desc']}}</p>
+        <a href="#" class="btn btn-primary bg-dark">Kosárba</a>
       </div>
     </div>
-  </nav>
-  <div class="row">
-    <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Margarita</h5>
-          <p class="card-text" >Paradicsomos alap,sajt</p>
-          <a href="/pizzak" class="btn btn-secondary" >Kiválaszt</a>            
-        </div>
-      </div>
-      <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Sonkás</h5>
-          <p class="card-text">Paradicsomos alap,sonka,sajt</p>
-          <a href="#" class="btn btn-secondary">Kiválaszt</a>            
-        </div>
-      </div>
-      <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Gombás</h5>
-          <p class="card-text ">Paradicsomos alap,sonka,gomba,sajt</p>
-          <a href="/pizzak" class="btn btn-secondary">Kiválaszt</a>  
-        </div>
-      </div>
-      <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Gonzalez</h5>
-          <p class="card-text">Paradicsomos alap,szalámi,tojás,mexikói zöldség,sajt</p>
-          <a href="#" class="btn btn-secondary">Kiválaszt</a>  
-        </div>
-      </div>
-      <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Hawaii</h5>
-          <p class="card-text">Paradicsomos alap,sonka,ananász,őszibarack,sajt</p>
-          <a href="/pizzak" class="btn btn-secondary">Kiválaszt</a>  
-        </div>
-      </div>
-      <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Magyaros</h5>
-          <p class="card-text">Paradicsomos alap,kolbász,bacon,hagyma</p>
-          <a href="#" class="btn btn-secondary">Kiválaszt</a>  
-        </div>
-      </div>
-      <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Mexikói</h5>
-          <p class="card-text">Paradicsomos alap,sonka,gomba,kukorica,bab,hagyma, sajt</p>
-          <a href="/pizzak" class="btn btn-secondary">Kiválaszt</a>  
-        </div>
-      </div>
-      <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Tenger gyümölcse</h5>
-          <p class="card-text">Paradicsomos alap,kagyló,rák,tonhal,citrom,olajbogyó,sajt</p>
-          <a href="#" class="btn btn-secondary">Kiválaszt</a>     
-        </div>
-      </div>
-      <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Szalámis</h5>
-          <p class="card-text">Paradicsomos alap,szalámi,gomba,tojás,sajt</p>
-          <a href="/pizzak" class="btn btn-secondary">Kiválaszt</a>  
-        </div>
-      </div>
-      <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Aladdin</h5>
-          <p class="card-text">Paradicsomos alap,sonka,szalámi,bacon,kukorica,tejföl,sajt</p>
-          <a href="#" class="btn btn-secondary">Kiválaszt</a>  
-        </div>
-      </div>
-      <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Vegetáriánus</h5>
-          <p class="card-text">Paradicsomos alap,gomba,kukorica,borsó,bab,brokkoli,sajt</p>
-          <a href="/pizzak" class="btn btn-secondary">Kiválaszt</a>  
-        </div>
-      </div>
-      <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Pinocchio</h5>
-          <p class="card-text">Paradicsomos alap,sonka,kukorica,sárgarépa,hagyma,sajt</p>
-          <a href="#" class="btn btn-secondary">Kiválaszt</a>  
-        </div>
-      </div>
-      <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Sajtkirály</h5>
-          <p class="card-text">Paradicsomos alap, 4 féle sajt</p>
-          <a href="/pizzak" class="btn btn-secondary">Kiválaszt</a>  
-        </div>
-      </div>
-      <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Terminátor</h5>
-          <p class="card-text">Paradicsomos alap,sonka,gomba,chilis bab,erős paprika,sajt</p>
-          <a href="#" class="btn btn-secondary">Kiválaszt</a>  
-        </div>
-      </div>
-      <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Moby Dick</h5>
-          <p class="card-text">Paradicsomos alap,sonka,tonhal,citrom,fokhagyma,sajt</p>
-          <a href="/pizzak" class="btn btn-secondary">Kiválaszt</a>  
-        </div>
-      </div>
-      <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Húsimádó</h5>
-          <p class="card-text">Paradicsomos alap,darált hús,bacon,sonka,borsó,sajt</p>
-          <a href="#" class="btn btn-secondary">Kiválaszt</a>  
-        </div>
-      </div>
-      <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Anonymus</h5>
-          <p class="card-text">Paradicsomos alap,virsli,sonka,tojás,gomba,sajt</p>
-          <a href="/pizzak" class="btn btn-secondary">Kiválaszt</a>  
-        </div>
-      </div>
-      <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-        <img src="/static/pizza.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Gyroshúsos</h5>
-          <p class="card-text">Paradicsomos alap,csirkemell,sajt</p>
-          <a href="#" class="btn btn-secondary">Kiválaszt</a>  
-        </div>
-      </div>
+
+{% endfor %}
   </div>
+</div>
 
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> 
-</body>
-</html>
+{% endblock rendeles_gomb %}
